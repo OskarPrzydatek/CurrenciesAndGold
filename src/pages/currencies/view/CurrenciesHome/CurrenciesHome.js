@@ -1,9 +1,9 @@
 import React from "react";
-import BackButton from "../../../components/BackButton/BackButton";
-import useCurrenciesTable from "../../../hooks/useCurrenciesTable";
-import PaginationPagesBar from "../components/PaginationPagesBar/PaginationPagesBar";
-import CurrenciesPaginatedTable from "../components/CurrenciesPaginatedTable/CurrenciesPaginatedTable";
-import usePagination from "../../../hooks/pagination/usePagination";
+import BackButton from "../../../../components/BackButton/BackButton";
+import useCurrenciesTable from "../../../../hooks/useCurrenciesTable";
+import PaginationPagesBar from "./components/PaginationPagesBar/PaginationPagesBar";
+import CurrenciesPaginatedTable from "./components/CurrenciesPaginatedTable/CurrenciesPaginatedTable";
+import usePagination from "../../../../hooks/pagination/usePagination";
 
 export default function CurrenciesHome() {
     const currencies = useCurrenciesTable();
@@ -18,7 +18,8 @@ export default function CurrenciesHome() {
                 state={state}/>
             <PaginationPagesBar
                 dispatch={dispatch}
-                numOfPages={numOfPages}/>
+                numOfPages={numOfPages}
+                actualPage={state.page}/>
             <BackButton/>
         </section>
     )

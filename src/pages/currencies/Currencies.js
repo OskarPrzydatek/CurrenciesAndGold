@@ -1,8 +1,8 @@
 import React from "react";
 import {Link, Route, Switch, useRouteMatch} from "react-router-dom";
-import CurrenciesHome from "./view/CurrenciesHome";
-import CurrenciesCalculator from "./view/CurrenciesCalculator";
-import CurrenciesHistory from "./view/CurenciessHistory";
+import CurrenciesHome from "./view/CurrenciesHome/CurrenciesHome";
+import CurrenciesCalculator from "./view/CurrenciesCalculator/CurrenciesCalculator";
+import CurrenciesHistory from "./view/CurrenciesHistory/CurrenciesHistory";
 
 export default function Currencies() {
     let {path, url} = useRouteMatch();

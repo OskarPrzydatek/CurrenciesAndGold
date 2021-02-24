@@ -1,7 +1,7 @@
 import React from "react";
 import {Link, Route, Switch, useRouteMatch} from "react-router-dom";
-import GoldHome from "./view/GoldHome";
-import GoldHistory from "./view/GoldHistory";
+import GoldHome from "./view/GoldHome/GoldHome";
+import GoldHistory from "./view/GoldHistory/GoldHistory";
 
 export default function Gold() {
     let {path, url} = useRouteMatch();
