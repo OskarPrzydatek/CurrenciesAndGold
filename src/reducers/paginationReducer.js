@@ -1,6 +1,6 @@
 export default function paginationReducer(state, action) {
     switch (action.type) {
-        case 'NEXT' :
+        case 'NEXT':
             if (state.page >= state.allPages.current) {
                 return {
                     ...state,

@@ -1,15 +1,20 @@
 import React from "react";
 
 export default function useCurrenciesCalculation(currencyToConvert, resultCurrency, input) {
-    const [inputState, setInputState] = React.useState(1);
+    const [currencyAmount, setCurrencyAmount] = React.useState(1);
 
     React.useEffect(() => {
-        if (input !== null) {
-            setInputState(input)
+        // input > 1 let us set input value
+        // and protect us from blank input value
+        if (input > 1) {
+            setCurrencyAmount(input)
+        } else {
+            // if input is empty
+            setCurrencyAmount(1)
         }
     }, [input])
 
-    let result = (currencyToConvert / resultCurrency) * inputState;
+    const result = (currencyToConvert / resultCurrency) * currencyAmount;
 
     return isNaN(result) ? null : result;
 }

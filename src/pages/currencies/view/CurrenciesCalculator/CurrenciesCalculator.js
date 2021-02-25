@@ -2,64 +2,52 @@ import React from "react";
 import BackButton from "../../../../components/BackButton/BackButton";
 import useCurrenciesTable from "../../../../hooks/useCurrenciesTable";
 import useCurrenciesCalculation from "../../../../hooks/useCurrenciesCalculation";
+import Select from "./components/Select/Select";
+import calculatorReducer from "../../../../reducers/calculatorReducer";
+import CurrencyAmountForm from "./components/CurrencyAmountForm/CurrencyAmountForm";
+import Answer from "./components/Answer/Answer";
 
 export default function CurrenciesCalculator() {
+    const calculatorState = {
+        currencyToConvert: {},
+        resultCurrency: {},
+        input: null
+    }
+
+    const initCalculatorState = state => state;
+
     const currencies = useCurrenciesTable();
+    const [state, dispatch] = React.useReducer(calculatorReducer, calculatorState, initCalculatorState)
+    const currencyCalculation = useCurrenciesCalculation(state.currencyToConvert.mid, state.resultCurrency.mid, state.input);
 
-    // TODO: Reducer maybe?
-    const [cur1, setCur1] = React.useState({});
-    const [cur2, setCur2] = React.useState({});
-    const [input, setInput] = React.useState(null);
+/*
+    console.log(state)
+*/
 
-    const currencyCalculation = useCurrenciesCalculation(cur1.mid, cur2.mid, input)
-
-    // TODO: Divide to components!!!
     return (
         <section>
             <header>
-                <h1>Currencies Calculator Works!</h1>
+                <h1>Kalkulator Walut</h1>
+                <p>Opis dodam na koniec</p>
             </header>
             <main>
-                <article>
-                    <select defaultValue='zw' onChange={event => setCur1(JSON.parse(event.target.value))}>
-                        <option value="zw" disabled hidden>Zmień walutę</option>
-                        {currencies !== undefined && currencies.map(currency => (
-                            <option
-                                key={currency.code}
-                                value={JSON.stringify(currency)}>
-                                {currency.currency}
-                                {currency.code}
-                            </option>
-                        ))}
-                    </select>
-                </article>
-
-
-                <article>
-                    <select defaultValue='nw' onChange={event => setCur2(JSON.parse(event.target.value))}>
-                        <option value="nw" disabled hidden>Na walutę</option>
-                        {currencies !== undefined && currencies.map(currency => (
-                            <option
-                                key={currency.code}
-                                value={JSON.stringify(currency)}>
-                                {currency.currency}
-                                {currency.code}
-                            </option>
-                        ))}
-                    </select>
-                </article>
-
-                <form>
-                    <label htmlFor="number-of-currency1">Podaj ilość {cur1.currency}</label>
-                    <input id="number-of-currency1"
-                           type="number"
-                           onChange={event => setInput(event.target.value)}/>
-                </form>
-
-                <article>
-                    <p>{cur1.currency} w przeliczeniu na {cur2.currency} wynosi:</p>
-                    <p>{currencyCalculation} </p>
-                </article>
+                <Select
+                    currencies={currencies}
+                    dispatch={dispatch}
+                    type={'SET_CURRENCY_1'}
+                    content={`Waluta wejściowa`}/>
+                <CurrencyAmountForm
+                    dispatch={dispatch}
+                    state={state}/>
+                <Select
+                    currencies={currencies}
+                    dispatch={dispatch}
+                    type={'SET_CURRENCY_2'}
+                    content={`Waluta wyjściowa`}/>
+                <Answer
+                    state={state}
+                    currencyCalculation={currencyCalculation}
+                    input={state.input}/>
             </main>
             <footer>
                 <BackButton/>
