@@ -13,8 +13,8 @@ export default function Currencies() {
                 <nav>
                     <ul>
                         <li><Link to={url}>Waluty</Link></li>
-                        <li><Link to={`${url}/calculator`}>Kalkulator Wartości</Link></li>
-                        <li><Link to={`${url}/history`}>Historia Wartości</Link></li>
+                        <li><Link to={`${url}/calculator`}>Kalkulator Walut</Link></li>
+                        <li><Link to={`${url}/history`}>Historia Waluty</Link></li>
                     </ul>
                 </nav>
             </aside>
