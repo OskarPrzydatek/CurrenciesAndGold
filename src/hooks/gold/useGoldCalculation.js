@@ -5,13 +5,15 @@ export default function useGoldCalculation(input, goldPrise) {
 
     React.useEffect(() => {
         if (input > 1) {
+            // set input if is no empty
             setGoldAmount(input)
         } else {
+            // if input is empty
             setGoldAmount(1)
         }
     }, [input]);
 
     const result = goldAmount * goldPrise;
 
-    return isNaN(result) ? null : result;
+    return isNaN(result) ? null : result.toFixed(2);
 }

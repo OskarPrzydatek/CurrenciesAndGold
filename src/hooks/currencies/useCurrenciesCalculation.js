@@ -16,5 +16,5 @@ export default function useCurrenciesCalculation(currencyToConvert, resultCurren
 
     const result = (currencyToConvert / resultCurrency) * currencyAmount;
 
-    return isNaN(result) ? null : result;
+    return isNaN(result) ? null : result.toFixed(2);
 }

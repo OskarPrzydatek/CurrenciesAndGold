@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function useCurrenciesTable() {
-    // Currencies Table Arrays
     const TableAUrl = `http://api.nbp.pl/api/exchangerates/tables/a`;
     const TableBUrl = `http://api.nbp.pl/api/exchangerates/tables/b`;
 
