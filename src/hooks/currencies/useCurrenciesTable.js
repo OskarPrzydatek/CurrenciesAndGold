@@ -11,13 +11,13 @@ export default function useCurrenciesTable() {
         // A Table GET
         const fetchAData = async () => {
             const resA = await fetch(TableAUrl);
-            return await resA.json();
+            return resA.json();
         }
 
         // B Table GET
         const fetchBData = async () => {
             const resB = await fetch(TableBUrl);
-            return await resB.json();
+            return resB.json();
         }
 
         // Add two tables to state

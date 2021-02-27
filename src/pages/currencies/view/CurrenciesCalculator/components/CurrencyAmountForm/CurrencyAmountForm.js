@@ -12,7 +12,7 @@ export default function CurrencyAmountForm({dispatch, state}) {
                        type="number"
                        onChange={event => dispatch({type: 'INPUT_STATE', payload: event.target.value})}
                        onKeyPress={event => /[+\-.,e=]$/.test(event.key) && event.preventDefault()}
-                       min={1}/>
+                       min={1} />
             </form>}
         </>
     );

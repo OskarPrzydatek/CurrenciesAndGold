@@ -1,7 +1,7 @@
 import React from "react";
 import BackButton from "../../../../components/BackButton/BackButton";
-import useCurrenciesTable from "../../../../hooks/useCurrenciesTable";
-import useCurrenciesCalculation from "../../../../hooks/useCurrenciesCalculation";
+import useCurrenciesTable from "../../../../hooks/currencies/useCurrenciesTable";
+import useCurrenciesCalculation from "../../../../hooks/currencies/useCurrenciesCalculation";
 import Select from "./components/Select/Select";
 import calculatorReducer from "../../../../reducers/calculatorReducer";
 import CurrencyAmountForm from "./components/CurrencyAmountForm/CurrencyAmountForm";
@@ -48,10 +48,8 @@ export default function CurrenciesCalculator() {
                     state={state}
                     currencyCalculation={currencyCalculation}
                     input={state.input}/>
-            </main>
-            <footer>
                 <BackButton/>
-            </footer>
+            </main>
         </section>
     )
 }

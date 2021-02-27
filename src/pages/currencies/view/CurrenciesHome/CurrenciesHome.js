@@ -1,6 +1,6 @@
 import React from "react";
 import BackButton from "../../../../components/BackButton/BackButton";
-import useCurrenciesTable from "../../../../hooks/useCurrenciesTable";
+import useCurrenciesTable from "../../../../hooks/currencies/useCurrenciesTable";
 import PaginationPagesBar from "./components/PaginationPagesBar/PaginationPagesBar";
 import CurrenciesPaginatedTable from "./components/CurrenciesPaginatedTable/CurrenciesPaginatedTable";
 import usePagination from "../../../../hooks/pagination/usePagination";
