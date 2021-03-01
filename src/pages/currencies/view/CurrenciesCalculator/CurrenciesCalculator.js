@@ -17,8 +17,10 @@ export default function CurrenciesCalculator() {
     const initCalculatorState = state => state;
 
     const currencies = useCurrenciesTablesFetch();
-    const [calculationState, dispatch] = React.useReducer(calculatorReducer, calculatorState, initCalculatorState)
-    const currencyCalculation = useCurrenciesCalculation(calculationState.currencyToConvert.mid, calculationState.resultCurrency.mid, calculationState.input);
+    const [calculationState, dispatch] = React.useReducer(calculatorReducer,
+        calculatorState, initCalculatorState)
+    const currencyCalculation = useCurrenciesCalculation(calculationState.currencyToConvert.mid,
+        calculationState.resultCurrency.mid, calculationState.input);
 
     return (
         <section>
