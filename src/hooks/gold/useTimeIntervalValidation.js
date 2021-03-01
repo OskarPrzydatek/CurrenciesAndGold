@@ -6,7 +6,7 @@
  *
  **/
 
-export default function useTimeIntervalLimits() {
+export default function useTimeIntervalValidation() {
     const minDate = new Date();
     const maxDate = new Date();
 

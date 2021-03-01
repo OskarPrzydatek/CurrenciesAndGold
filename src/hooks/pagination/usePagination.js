@@ -20,8 +20,8 @@ export default function usePagination(numOfPages) {
     })
 
     // Reducer for pagination mechanics
-    const [state, dispatch] = React.useReducer(
+    const [pageState, dispatch] = React.useReducer(
         paginationReducer, paginationState, initPaginationState);
 
-    return [state, dispatch];
+    return [pageState, dispatch];
 }
