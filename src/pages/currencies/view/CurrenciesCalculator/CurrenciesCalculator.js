@@ -1,6 +1,6 @@
 import React from "react";
 import BackButton from "../../../../components/BackButton/BackButton";
-import useCurrenciesTable from "../../../../hooks/currencies/useCurrenciesTable";
+import useCurrenciesTablesFetch from "../../../../hooks/currencies/useCurrenciesTablesFetch";
 import useCurrenciesCalculation from "../../../../hooks/currencies/useCurrenciesCalculation";
 import Select from "./components/Select/Select";
 import calculatorReducer from "../../../../reducers/calculatorReducer";
@@ -16,7 +16,7 @@ export default function CurrenciesCalculator() {
 
     const initCalculatorState = state => state;
 
-    const currencies = useCurrenciesTable();
+    const currencies = useCurrenciesTablesFetch();
     const [state, dispatch] = React.useReducer(calculatorReducer, calculatorState, initCalculatorState)
     const currencyCalculation = useCurrenciesCalculation(state.currencyToConvert.mid, state.resultCurrency.mid, state.input);
 

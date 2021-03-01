@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function useGold() {
+export default function useGoldFetch() {
     const goldURL = `http://api.nbp.pl/api/cenyzlota`;
 
     const [gold, setGold] = React.useState({});

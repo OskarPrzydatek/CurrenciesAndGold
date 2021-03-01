@@ -1,10 +1,10 @@
 import React from "react";
 import BackButton from "../../../../components/BackButton/BackButton";
-import useGold from "../../../../hooks/gold/useGold";
+import useGoldFetch from "../../../../hooks/gold/useGoldFetch";
 import GoldCalculations from "./components/GoldCalculations/GoldCalculations";
 
 export default function GoldHome() {
-    const gold = useGold();
+    const gold = useGoldFetch();
 
     return (
         <section>
