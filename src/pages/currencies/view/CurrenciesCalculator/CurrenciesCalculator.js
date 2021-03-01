@@ -17,12 +17,8 @@ export default function CurrenciesCalculator() {
     const initCalculatorState = state => state;
 
     const currencies = useCurrenciesTablesFetch();
-    const [state, dispatch] = React.useReducer(calculatorReducer, calculatorState, initCalculatorState)
-    const currencyCalculation = useCurrenciesCalculation(state.currencyToConvert.mid, state.resultCurrency.mid, state.input);
-
-/*
-    console.log(state)
-*/
+    const [calculationState, dispatch] = React.useReducer(calculatorReducer, calculatorState, initCalculatorState)
+    const currencyCalculation = useCurrenciesCalculation(calculationState.currencyToConvert.mid, calculationState.resultCurrency.mid, calculationState.input);
 
     return (
         <section>
@@ -38,16 +34,16 @@ export default function CurrenciesCalculator() {
                     content={`Waluta wejściowa`}/>
                 <CurrencyAmountForm
                     dispatch={dispatch}
-                    state={state}/>
+                    calculationState={calculationState}/>
                 <Select
                     currencies={currencies}
                     dispatch={dispatch}
                     type={'SET_CURRENCY_2'}
                     content={`Waluta wyjściowa`}/>
                 <Answer
-                    state={state}
+                    calculationState={calculationState}
                     currencyCalculation={currencyCalculation}
-                    input={state.input}/>
+                    input={calculationState.input}/>
                 <BackButton/>
             </main>
         </section>

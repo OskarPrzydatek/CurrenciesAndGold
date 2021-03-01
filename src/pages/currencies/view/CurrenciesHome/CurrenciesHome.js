@@ -9,17 +9,17 @@ export default function CurrenciesHome() {
     const currencies = useCurrenciesTablesFetch();
     const numOfPages = currencies !== undefined ? Math.ceil(currencies.length / 10) : 0;
 
-    const [state, dispatch] = usePagination(numOfPages);
+    const [pagesState, dispatch] = usePagination(numOfPages);
 
     return (
         <section>
             <CurrenciesPaginatedTable
                 currencies={currencies}
-                state={state}/>
+                pagesState={pagesState}/>
             <PaginationPagesBar
                 dispatch={dispatch}
                 numOfPages={numOfPages}
-                actualPage={state.page}/>
+                actualPage={pagesState.page}/>
             <BackButton/>
         </section>
     )

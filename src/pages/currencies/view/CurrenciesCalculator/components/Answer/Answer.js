@@ -1,18 +1,16 @@
 import React from "react";
 import useIsObjectEmpty from "../../../../../../hooks/useIsObjectEmpty";
 
-export default function Answer({state, currencyCalculation, input}) {
-    const currencyToConvert = useIsObjectEmpty(state.currencyToConvert);
-    const resultCurrency = useIsObjectEmpty(state.resultCurrency);
+export default function Answer({calculationState, currencyCalculation, input}) {
+    const resultCurrency = useIsObjectEmpty(calculationState.resultCurrency);
 
     return (
         <article>
-            {currencyToConvert &&
-            <p>
-                <span>{input ? input : '1'}</span> {state.currencyToConvert.currency}
-            </p>}
-            {resultCurrency && <p>w przeliczeniu na {state.resultCurrency.currency} wynosi:</p>}
-            <p>{currencyCalculation} </p>
+            {resultCurrency &&
+                <div className="calculation-result">
+                    <p>{input ? input : '1'} {calculationState.currencyToConvert.code} = {currencyCalculation} {calculationState.resultCurrency.code}</p>
+                </div>
+            }
         </article>
     );
 }

@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function CurrenciesPaginatedTable({currencies, state }) {
+export default function CurrenciesPaginatedTable({currencies, pagesState }) {
     return (
         <ul>
             {currencies !== undefined && currencies
-                .slice(state.from, state.to)
+                .slice(pagesState.from, pagesState.to)
                 .map(currency => (
                     <li key={currency.code}>
                         <span>{currency.currency}&nbsp;</span>
