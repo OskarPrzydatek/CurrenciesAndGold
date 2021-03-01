@@ -9,7 +9,7 @@ export default function CurrenciesPaginatedTable({currencies, pagesState }) {
                     <li key={currency.code}>
                         <span>{currency.currency}&nbsp;</span>
                         <span>{currency.code}&nbsp;</span>
-                        <span>{currency.mid}PLN</span>
+                        <span>{currency.mid.toFixed(2)}PLN</span>
                     </li>
                 ))}
         </ul>
