@@ -1,9 +1,8 @@
 import React from "react";
-import {Line} from "react-chartjs-2";
 import BackButton from "../../../../components/BackButton/BackButton";
 import timeIntervalReducer from "../../../../reducers/timeIntervalReducer";
-import useGoldHistory from "../../../../hooks/gold/useGoldHistory/useGoldHistory";
-import useTimeIntervalLimits from "../../../../hooks/gold/useTimeIntervalLimits";
+import TimePicker from "./components/TimePicker/TimePicker";
+import GoldHistoryChart from "./components/GoldHistoryChart/GoldHistoryChart";
 
 export default function GoldHistory() {
     const timeIntervalState = {
@@ -13,10 +12,8 @@ export default function GoldHistory() {
 
     const initTimeIntervalState = state => state;
 
-    const [state, dispatch] = React.useReducer(timeIntervalReducer,
+    const [timeState, dispatch] = React.useReducer(timeIntervalReducer,
         timeIntervalState, initTimeIntervalState);
-    const goldData = useGoldHistory(state.from, state.to);
-    const [minDate, maxDate] = useTimeIntervalLimits()
 
     return (
         <section>
@@ -25,21 +22,8 @@ export default function GoldHistory() {
                 <p>Cena złota w czasie</p>
             </header>
             <main>
-                <form>
-                    <label htmlFor="">Od dnia</label>
-                    <input type="date"
-                           min={minDate}
-                           max={maxDate}
-                           onChange={event => dispatch({type: 'FROM', payload: event.target.value})}/>
-                    <label htmlFor="">Do dnia</label>
-                    <input type="date"
-                           min={minDate}
-                           max={maxDate}
-                           onChange={event => dispatch({type: 'TO', payload: event.target.value})}/>
-                </form>
-                <div className="chart">
-                    {state.from && state.to !== "" && <Line data={goldData}/>}
-                </div>
+                <TimePicker dispatch={dispatch} />
+                <GoldHistoryChart timeState={timeState} />
             </main>
             <BackButton/>
         </section>
