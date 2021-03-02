@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Home from "./pages/home/Home";
 import Currencies from "./pages/currencies/Currencies";
