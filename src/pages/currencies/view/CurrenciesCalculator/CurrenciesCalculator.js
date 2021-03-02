@@ -1,4 +1,5 @@
 import React from "react";
+import "./CurrenciesCalculator.scss";
 import BackButton from "../../../../components/BackButton/BackButton";
 import useCurrenciesTablesFetch from "../../../../hooks/currencies/useCurrenciesTablesFetch";
 import useCurrenciesCalculation from "../../../../hooks/currencies/useCurrenciesCalculation";
@@ -23,12 +24,12 @@ export default function CurrenciesCalculator() {
         calculationState.resultCurrency.mid, calculationState.input);
 
     return (
-        <article>
-            <header>
+        <article className="currency-calculator">
+            <header className="currency-calculator-header">
                 <h1>Kalkulator Walut</h1>
-                <p>Opis dodam na koniec</p>
+                <p>Kalkulator umożliwiający przeliczanie walut</p>
             </header>
-            <main>
+            <main className="currency-calculator-core">
                 <Select
                     currencies={currencies}
                     dispatch={dispatch}
@@ -46,8 +47,8 @@ export default function CurrenciesCalculator() {
                     calculationState={calculationState}
                     currencyCalculation={currencyCalculation}
                     input={calculationState.input}/>
-                <BackButton/>
             </main>
+            <BackButton/>
         </article>
     )
 }
