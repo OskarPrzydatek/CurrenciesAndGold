@@ -1,0 +1,35 @@
+@import "../../style/colors/colors.scss";
+@import "../../style/mixins/underline";
+
+.currencies {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  background: $currencies-main;
+  color: $currencies-font;
+}
+
+.partial {
+  background: $currencies-supplement;
+  color: $currencies-main;
+
+  &__menu {
+    width: 100%;
+    height: 100%;
+    padding: 5%;
+
+    &__item {
+      height: 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.2vmax;
+
+      a {
+        text-align: center;
+        @include underline($currencies-main);
+      }
+    }
+  }
+}

@@ -1,8 +1,9 @@
 import React from "react";
+import "./CurrenciesHome.scss";
 import BackButton from "../../../../components/BackButton/BackButton";
 import useCurrenciesTablesFetch from "../../../../hooks/currencies/useCurrenciesTablesFetch";
 import PaginationPagesBar from "./components/PaginationPagesBar/PaginationPagesBar";
-import CurrenciesPaginatedTable from "./components/CurrenciesPaginatedTable/CurrenciesPaginatedTable";
+import CurrenciesPaginatedList from "./components/CurrenciesPaginatedList/CurrenciesPaginatedList";
 import usePagination from "../../../../hooks/pagination/usePagination";
 
 export default function CurrenciesHome() {
@@ -13,8 +14,12 @@ export default function CurrenciesHome() {
     const [pagesState, dispatch] = usePagination(numOfPages);
 
     return (
-        <section>
-            <CurrenciesPaginatedTable
+        <article className="currencies-home">
+            <header className="currencies-home__header">
+                <h1>Lista Walut</h1>
+                <p>Lista walut z przeliczeniem na złotówki dostępna w naszej aplikacji</p>
+            </header>
+            <CurrenciesPaginatedList
                 currencies={currencies}
                 pagesState={pagesState}/>
             <PaginationPagesBar
@@ -22,6 +27,6 @@ export default function CurrenciesHome() {
                 numOfPages={numOfPages}
                 actualPage={pagesState.page}/>
             <BackButton/>
-        </section>
+        </article>
     )
 }

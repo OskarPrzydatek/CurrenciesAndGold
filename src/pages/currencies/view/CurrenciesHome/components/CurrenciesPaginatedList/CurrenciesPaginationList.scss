@@ -1,0 +1,10 @@
+.currency-list {
+
+  &__item {
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8vmax;
+  }
+}

@@ -1,0 +1,18 @@
+.currencies-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  &__header {
+    text-align: center;
+
+    h1 {
+      font-size: 3vmax;
+    }
+
+    p {
+      font-size: 2vmax;
+    }
+  }
+}

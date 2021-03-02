@@ -1,0 +1,11 @@
+.page-bar {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.5vmax;
+
+  &__move-key {
+    font-size: 3vmax;
+  }
+}

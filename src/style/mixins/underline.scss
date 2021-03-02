@@ -1,0 +1,19 @@
+@mixin underline($underline-color) {
+  &:hover {
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: .2vmax;
+      background: $underline-color;
+      animation: underline;
+      animation-duration: .3s;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes underline {
+  from { width: 0 }
+  to { width: 100% }
+}

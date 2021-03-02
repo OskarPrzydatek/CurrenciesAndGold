@@ -23,7 +23,7 @@ export default function CurrenciesCalculator() {
         calculationState.resultCurrency.mid, calculationState.input);
 
     return (
-        <section>
+        <article>
             <header>
                 <h1>Kalkulator Walut</h1>
                 <p>Opis dodam na koniec</p>
@@ -48,6 +48,6 @@ export default function CurrenciesCalculator() {
                     input={calculationState.input}/>
                 <BackButton/>
             </main>
-        </section>
+        </article>
     )
 }

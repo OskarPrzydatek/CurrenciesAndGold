@@ -10,7 +10,7 @@ export default function CurrentPages({ pages, actualPage, dispatch}) {
                 .slice(currentPages - 1, currentPages + 2)
                 .map(page => (
                     <li key={page}
-                        style={{color: actualPage === page ? `red` : `black`}}
+                        style={{color: actualPage === page ? `#BF6989` : `#014029`}}
                         onClick={() => dispatch({type: 'TO_PAGE', payload: page})}>
                         {page}
                     </li>
@@ -19,7 +19,6 @@ export default function CurrentPages({ pages, actualPage, dispatch}) {
                 ...
             </li>
             <li key={pages.length}
-                style={{color: actualPage === pages.length ? `red` : `black`}}
                 onClick={() => dispatch({type: 'TO_PAGE', payload: pages.length})}>
                 {pages.length}
             </li>
