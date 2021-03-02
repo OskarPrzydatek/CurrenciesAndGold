@@ -7,15 +7,15 @@ import calculatorReducer from "../../../../reducers/calculatorReducer";
 import CurrencyAmountForm from "./components/CurrencyAmountForm/CurrencyAmountForm";
 import Answer from "./components/Answer/Answer";
 
+const calculatorState = {
+    currencyToConvert: {},
+    resultCurrency: {},
+    input: null
+}
+
+const initCalculatorState = state => state;
+
 export default function CurrenciesCalculator() {
-    const calculatorState = {
-        currencyToConvert: {},
-        resultCurrency: {},
-        input: null
-    }
-
-    const initCalculatorState = state => state;
-
     const currencies = useCurrenciesTablesFetch();
     const [calculationState, dispatch] = React.useReducer(calculatorReducer,
         calculatorState, initCalculatorState)

@@ -4,14 +4,14 @@ import timeIntervalReducer from "../../../../reducers/timeIntervalReducer";
 import TimePicker from "./components/TimePicker/TimePicker";
 import GoldHistoryChart from "./components/GoldHistoryChart/GoldHistoryChart";
 
+const timeIntervalState = {
+    from: '',
+    to: ''
+}
+
+const initTimeIntervalState = state => state;
+
 export default function GoldHistory() {
-    const timeIntervalState = {
-        from: '',
-        to: ''
-    }
-
-    const initTimeIntervalState = state => state;
-
     const [timeState, dispatch] = React.useReducer(timeIntervalReducer,
         timeIntervalState, initTimeIntervalState);
 

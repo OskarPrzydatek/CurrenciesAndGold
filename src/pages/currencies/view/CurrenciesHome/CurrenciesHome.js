@@ -7,7 +7,8 @@ import usePagination from "../../../../hooks/pagination/usePagination";
 
 export default function CurrenciesHome() {
     const currencies = useCurrenciesTablesFetch();
-    const numOfPages = currencies !== undefined ? Math.ceil(currencies.length / 10) : 0;
+    const elementsOnPages = 10;
+    const numOfPages = currencies !== undefined ? Math.ceil(currencies.length / elementsOnPages) : 0;
 
     const [pagesState, dispatch] = usePagination(numOfPages);
 
