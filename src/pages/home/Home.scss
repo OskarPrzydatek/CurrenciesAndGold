@@ -1,0 +1,22 @@
+@import "../../style/colors/colors";
+@import "../../style/mixins/homeMenuItem.scss";
+
+.home {
+  height: 100vh;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100%;
+
+  &__currencies {
+    @include homeMenuItem($currencies-main,
+            $currencies-supplement, $direction: left);
+  }
+
+  &__gold {
+    @include homeMenuItem($gold-main,
+            $gold-supplement, $direction: right);
+  }
+}

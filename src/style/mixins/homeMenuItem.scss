@@ -1,0 +1,29 @@
+@mixin homeMenuItem($main, $supplement, $direction) {
+  background: $main;
+  color: $supplement;
+  font-size: 6vmax;
+
+  a {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+
+    // Default position for animation
+    @if $direction == right {
+      justify-content: flex-end;
+    } @else if $direction == left {
+      justify-content: flex-start;
+    }
+
+    animation: move;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes move {
+    from {padding: 0 0}
+    to {padding: 0 25%}
+  }
+}
