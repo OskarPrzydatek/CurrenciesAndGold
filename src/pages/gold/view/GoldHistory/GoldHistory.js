@@ -1,4 +1,5 @@
 import React from "react";
+import "./GoldHistory.scss";
 import BackButton from "../../../../components/BackButton/BackButton";
 import timeIntervalReducer from "../../../../reducers/timeIntervalReducer";
 import TimePicker from "./components/TimePicker/TimePicker";
@@ -16,16 +17,16 @@ export default function GoldHistory() {
         timeIntervalState, initTimeIntervalState);
 
     return (
-        <section>
-            <header>
-                <h1>Gold History Works!</h1>
-                <p>Cena złota w czasie</p>
+        <article className="gold-history">
+            <header className="gold-history__header">
+                <h1>Cena złota w czasie</h1>
+                <p>Ceny złota dostępne w okresie 367 dni do dnia dzisiejszego</p>
             </header>
-            <main>
+            <main className="gold-history__main">
                 <TimePicker dispatch={dispatch} />
                 <GoldHistoryChart timeState={timeState} />
             </main>
             <BackButton/>
-        </section>
+        </article>
     )
 }

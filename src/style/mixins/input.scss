@@ -1,0 +1,13 @@
+@mixin input($bg, $border) {
+  height: 40%;
+  width: 100%;
+  background: $bg;
+  border: none;
+  border-bottom: 3px solid $border;
+}
+
+@mixin inputFont($color) {
+  font-size: 2vmax;
+  color: $color;
+  text-align: center;
+}

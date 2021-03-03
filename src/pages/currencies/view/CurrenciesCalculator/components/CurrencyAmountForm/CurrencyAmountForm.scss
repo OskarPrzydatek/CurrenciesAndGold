@@ -1,5 +1,6 @@
-@import "../../../../../../style/colors/colors.scss";
+@import "../../../../../../style/colors";
 @import "../../../../../../style/mixins/removeArrows.scss";
+@import "../../../../../../style/mixins/input.scss";
 
 .currency-amount-form {
   height: 30%;
@@ -14,16 +15,10 @@
   }
 
   &__input {
-    background: $currencies-main;
-    width: 100%;
-    height: 40%;
-    border: none;
-    border-bottom: 3px solid $currencies-supplement;
+    @include input($currencies-main, $currencies-supplement);
 
     &-font {
-      font-size: 2vmax;
-      color: $currencies-font;
-      text-align: center;
+      @include inputFont($currencies-font);
     }
   }
 }

@@ -10,7 +10,10 @@ export default function useGoldChartData(goldDates, goldPrizes) {
             labels: goldDates,
             datasets: [{
                 label: 'Cena złota',
-                data: goldPrizes
+                data: goldPrizes,
+                fill: false,
+                borderColor: `#F2CD88`,
+                pointBackgroundColor: `#F2CD88`,
             }]
         })
     }, [goldDates, goldPrizes]);

@@ -20,8 +20,8 @@ export default function Gold() {
                 </ul>
             </nav>
             <Switch>
-                <Route exact path={path} component={GoldHome}/>
-                <Route path={`${path}/history`} component={GoldHistory}/>
+                <Route exact path={path} component={GoldHome} />
+                <Route path={`${path}/history`} component={GoldHistory} />
             </Switch>
         </section>
     )

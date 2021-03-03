@@ -1,5 +1,5 @@
-@import "../../style/colors/colors.scss";
-@import "../../style/mixins/pageLayout/pageLayout.scss";
+@import "../../style/colors";
+@import "../../style/mixins/pageLayout";
 
 .currencies-page {
   @include pageLayout($currencies-main, $currencies-font)
