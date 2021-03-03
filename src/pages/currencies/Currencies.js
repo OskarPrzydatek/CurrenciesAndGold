@@ -8,13 +8,13 @@ export default function Currencies() {
     let {path, url} = useRouteMatch();
 
     return (
-        <section className="currencies">
-            <nav className="partial">
-                <ul className="partial__menu">
-                    <li className="partial__menu__item partial__menu__item-hover">
+        <section className="currencies-page">
+            <nav className="currencies-partial">
+                <ul className="currencies-partial__menu">
+                    <li className="currencies-partial__menu__item currencies-partial__menu__item-hover">
                         <Link to={url}>Waluty</Link>
                     </li>
-                    <li className="partial__menu__item partial__menu__item-hover">
+                    <li className="currencies-partial__menu__item partial__menu__item-hover">
                         <Link to={`${url}/calculator`}>Kalkulator</Link>
                     </li>
                 </ul>

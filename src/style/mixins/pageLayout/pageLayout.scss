@@ -1,0 +1,29 @@
+@import "../underline.scss";
+
+@mixin pageLayout($bg, $font) {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  background: $bg;
+  color: $font;
+}
+
+@mixin partial() {
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+}
+
+@mixin partialItem($color) {
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.2vmax;
+
+  a {
+    text-align: center;
+    @include underline($color);
+  }
+}

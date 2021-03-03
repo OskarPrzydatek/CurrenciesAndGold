@@ -1,0 +1,18 @@
+@import "../../style/colors/colors.scss";
+@import "../../style/mixins/pageLayout/pageLayout.scss";
+
+.gold-page {
+  @include pageLayout($gold-main, $gold-supplement);
+}
+
+.gold-partial {
+  border-right: 5px solid $gold-supplement;
+
+  &__menu {
+    @include partial();
+
+    &__item {
+      @include partialItem($gold-supplement);
+    }
+  }
+}
