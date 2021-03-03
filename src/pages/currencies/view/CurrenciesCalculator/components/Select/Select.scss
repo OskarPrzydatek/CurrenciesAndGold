@@ -1,0 +1,12 @@
+@import "../../../../../../style/colors/colors.scss";
+
+.currency-select {
+  width: 40%;
+  height: 50%;
+  border: none;
+  border-bottom: 3px solid $currencies-supplement;
+  color: $currencies-font;
+  background: $currencies-main;
+  text-transform: capitalize;
+  font-size: 1.6vmax;
+}

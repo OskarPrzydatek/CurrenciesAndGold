@@ -30,23 +30,25 @@ export default function CurrenciesCalculator() {
                 <p>Kalkulator umożliwiający przeliczanie walut</p>
             </header>
             <main className="currency-calculator-core">
-                <Select
-                    currencies={currencies}
-                    dispatch={dispatch}
-                    type={'SET_CURRENCY_1'}
-                    content={`Waluta wejściowa`}/>
+                <section className="currency-calculator-core__select">
+                    <Select
+                        currencies={currencies}
+                        dispatch={dispatch}
+                        type={'SET_CURRENCY_1'}
+                        content={`Waluta wejściowa`} />
+                    <Select
+                        currencies={currencies}
+                        dispatch={dispatch}
+                        type={'SET_CURRENCY_2'}
+                        content={`Waluta wyjściowa`} />
+                </section>
                 <CurrencyAmountForm
                     dispatch={dispatch}
-                    calculationState={calculationState}/>
-                <Select
-                    currencies={currencies}
-                    dispatch={dispatch}
-                    type={'SET_CURRENCY_2'}
-                    content={`Waluta wyjściowa`}/>
+                    calculationState={calculationState} />
                 <Answer
                     calculationState={calculationState}
                     currencyCalculation={currencyCalculation}
-                    input={calculationState.input}/>
+                    input={calculationState.input} />
             </main>
             <BackButton/>
         </article>

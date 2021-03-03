@@ -1,4 +1,5 @@
 import React from "react";
+import "./CurrencyAmountForm.scss";
 import useIsObjectEmpty from "../../../../../../hooks/useIsObjectEmpty";
 
 export default function CurrencyAmountForm({dispatch, calculationState}) {
@@ -6,10 +7,16 @@ export default function CurrencyAmountForm({dispatch, calculationState}) {
 
     return (
         <>
-            {currencyToConvert && <form>
-                <label htmlFor="number-of-currencyToConvert">Podaj ilość {calculationState.currencyToConvert.currency}</label>
+            {currencyToConvert &&
+            <form className="currency-amount-form">
+                <label htmlFor="number-of-currencyToConvert">Podaj ilość
+                    <span className="currency-amount-form__chosen">
+                        &nbsp;{calculationState.currencyToConvert.currency}
+                    </span>
+                </label>
                 <input id="number-of-currencyToConvert"
                        type="number"
+                       className="currency-amount-form__input currency-amount-form__input-font"
                        onChange={event => dispatch({type: 'INPUT_STATE', payload: event.target.value})}
                        onKeyPress={event => /[+\-.,e=]$/.test(event.key) && event.preventDefault()}
                        min={1} />
