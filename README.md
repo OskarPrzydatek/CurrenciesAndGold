@@ -7,8 +7,8 @@
 - Currency and gold calculation
 
 ### TechStack:hammer:
-- React
-- Sass
+- React<a href="https://reactjs.org/" title="React"><img src="https://github.com/tomchen/stack-icons/blob/master/logos/react.svg" alt="React" width="21px" height="21px"></a>
+- Sass<a href="https://sass-lang.com/" title="Sass"><img src="https://github.com/tomchen/stack-icons/blob/master/logos/sass.svg" alt="Sass" width="21px" height="21px"></a>
 
 ### API:twisted_rightwards_arrows:
 - http://api.nbp.pl/
