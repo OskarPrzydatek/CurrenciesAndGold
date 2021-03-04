@@ -3,7 +3,7 @@
 </h1>
 
 ### Aplication Goals:soccer:
-- Currencies and Gold data fetch
+- Currencies and gold data fetch
 - Currency and gold calculation
 
 ### TechStack:hammer:
