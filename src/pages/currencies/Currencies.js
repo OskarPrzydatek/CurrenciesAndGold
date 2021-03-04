@@ -3,6 +3,7 @@ import "./Currencies.scss";
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 import CurrenciesHome from "./view/CurrenciesHome/CurrenciesHome";
 import CurrenciesCalculator from "./view/CurrenciesCalculator/CurrenciesCalculator";
+import NotFound from "../404/NotFound";
 
 export default function Currencies() {
     let {path, url} = useRouteMatch();
@@ -21,7 +22,9 @@ export default function Currencies() {
             </nav>
             <Switch>
                 <Route exact path={path} component={CurrenciesHome}/>
-                <Route path={`${path}/calculator`} component={CurrenciesCalculator}/>
+                <Route exact path={`${path}/calculator`} component={CurrenciesCalculator}/>
+                <Route path={`${path}/*`} component={NotFound} />
+                <Route path={`${path}/calculator/*`} component={NotFound} />
             </Switch>
         </section>
     )

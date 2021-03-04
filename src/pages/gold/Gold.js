@@ -3,6 +3,7 @@ import "./Gold.scss";
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 import GoldHome from "./view/GoldHome/GoldHome";
 import GoldHistory from "./view/GoldHistory/GoldHistory";
+import NotFound from "../404/NotFound";
 
 export default function Gold() {
     let {path, url} = useRouteMatch();
@@ -21,7 +22,9 @@ export default function Gold() {
             </nav>
             <Switch>
                 <Route exact path={path} component={GoldHome} />
-                <Route path={`${path}/history`} component={GoldHistory} />
+                <Route exact path={`${path}/history`} component={GoldHistory} />
+                <Route path={`${path}/*`} component={NotFound} />
+                <Route path={`${path}/history/*`} component={NotFound} />
             </Switch>
         </section>
     )

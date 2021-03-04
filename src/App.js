@@ -11,8 +11,8 @@ export default function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route exact path='/currencies' component={Currencies} />
-          <Route exact path='/gold' component={Gold} />
+          <Route path='/currencies' component={Currencies} />
+          <Route path='/gold' component={Gold} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
