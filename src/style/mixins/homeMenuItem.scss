@@ -1,3 +1,5 @@
+@import "./move.scss";
+
 @mixin homeMenuItem($main, $supplement, $direction) {
   background: $main;
   color: $supplement;
@@ -9,6 +11,7 @@
     padding: 0;
     display: flex;
     align-items: center;
+    @include moveProps();
 
     // Default position for animation
     @if $direction == right {
@@ -16,14 +19,7 @@
     } @else if $direction == left {
       justify-content: flex-start;
     }
-
-    animation: move;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
   }
 
-  @keyframes move {
-    from { padding: 0 0 }
-    to { padding: 0 25% }
-  }
+  @include move();
 }

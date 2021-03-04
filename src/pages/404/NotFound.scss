@@ -1,0 +1,39 @@
+@import "../../style/colors.scss";
+@import "../../style/mixins/move.scss";
+@import "../../style/mixins/notFountLayout.scss";
+
+.not-found {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  &__currencies {
+    @include notFoundLayout($currencies-main);
+    justify-content: flex-start;
+
+    &-animation {
+      @include moveProps();
+    }
+
+    a {
+      font-size: 5vmax;
+      color: $currencies-supplement;
+    }
+  }
+
+  &__gold {
+    @include notFoundLayout($gold-main);
+    justify-content: flex-end;
+
+    &-animation {
+      @include moveProps();
+    }
+
+    a {
+      font-size: 5vmax;
+      color: $gold-supplement;
+    }
+  }
+
+  @include move();
+}
