@@ -7,6 +7,7 @@ import Select from "./components/Select/Select";
 import calculatorReducer from "../../../../reducers/calculatorReducer";
 import CurrencyAmountForm from "./components/CurrencyAmountForm/CurrencyAmountForm";
 import Answer from "./components/Answer/Answer";
+import CurrenciesLayoutTemplate from "../../CurrenciesLayoutTemplate";
 
 const calculatorState = {
     currencyToConvert: {},
@@ -16,7 +17,7 @@ const calculatorState = {
 
 const initCalculatorState = state => state;
 
-export default function CurrenciesCalculator() {
+export default function CurrenciesCalculator({ url }) {
     const currencies = useCurrenciesTablesFetch();
     const [calculationState, dispatch] = React.useReducer(calculatorReducer,
         calculatorState, initCalculatorState)
@@ -24,33 +25,35 @@ export default function CurrenciesCalculator() {
         calculationState.resultCurrency.mid, calculationState.input);
 
     return (
-        <article className="currency-calculator">
-            <header className="currency-calculator-header">
-                <h1>Kalkulator Walut</h1>
-                <p>Kalkulator umożliwiający przeliczanie walut</p>
-            </header>
-            <main className="currency-calculator-core">
-                <section className="currency-calculator-core__select">
-                    <Select
-                        currencies={currencies}
+        <CurrenciesLayoutTemplate url={url}>
+            <article className="currency-calculator">
+                <header className="currency-calculator-header">
+                    <h1>Kalkulator Walut</h1>
+                    <p>Kalkulator umożliwiający przeliczanie walut</p>
+                </header>
+                <main className="currency-calculator-core">
+                    <section className="currency-calculator-core__select">
+                        <Select
+                            currencies={currencies}
+                            dispatch={dispatch}
+                            type={'SET_CURRENCY_1'}
+                            content={`Waluta wejściowa`}/>
+                        <Select
+                            currencies={currencies}
+                            dispatch={dispatch}
+                            type={'SET_CURRENCY_2'}
+                            content={`Waluta wyjściowa`}/>
+                    </section>
+                    <CurrencyAmountForm
                         dispatch={dispatch}
-                        type={'SET_CURRENCY_1'}
-                        content={`Waluta wejściowa`} />
-                    <Select
-                        currencies={currencies}
-                        dispatch={dispatch}
-                        type={'SET_CURRENCY_2'}
-                        content={`Waluta wyjściowa`} />
-                </section>
-                <CurrencyAmountForm
-                    dispatch={dispatch}
-                    calculationState={calculationState} />
-                <Answer
-                    calculationState={calculationState}
-                    currencyCalculation={currencyCalculation}
-                    input={calculationState.input} />
-            </main>
-            <BackButton/>
-        </article>
+                        calculationState={calculationState}/>
+                    <Answer
+                        calculationState={calculationState}
+                        currencyCalculation={currencyCalculation}
+                        input={calculationState.input}/>
+                </main>
+                <BackButton/>
+            </article>
+        </CurrenciesLayoutTemplate>
     )
 }
